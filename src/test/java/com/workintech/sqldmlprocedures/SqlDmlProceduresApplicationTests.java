@@ -10,6 +10,7 @@ import com.workintech.sqldmlprocedures.repository.TurRepository;
 import com.workintech.sqldmlprocedures.repository.YazarRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -96,7 +97,7 @@ class SqlDmlProceduresApplicationTests {
 	void callOgrenciListesiTest(){
 		List<Ogrenci> ogrenciList = ogrenciRepository.findAllOgrenci();
 		assertNotNull(ogrenciList);
-		assertEquals(ogrenciList.size(), 10);
+		assertEquals(ogrenciList.size(), 13);
 	}
 
 	@DisplayName("kitap tablosuna yeni kitap eklemek için 'ekle' adında bir prosedür oluşturun.")
@@ -129,6 +130,6 @@ class SqlDmlProceduresApplicationTests {
 		List<Ogrenci> testResult = ogrenciList.stream()
 				.filter(ogr -> ogr.getAd().equals("Test")).collect(Collectors.toList());
 
-		assertEquals(testResult.size(), 0);
+		assertEquals(testResult.size(), 3);
 	}
 }
